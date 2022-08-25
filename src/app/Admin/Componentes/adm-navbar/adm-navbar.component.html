@@ -1,0 +1,9 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid space-between">
+      <div>
+        <a class="navbar-brand" [routerLink]="['/admin/painel']">painel</a>
+        <small class="text-light">Usuário: {{MyName()}}</small>
+      </div>
+      <a class="btn text-light" [routerLink]="['/admin/logout']">sair</a>    
+  </div>
+</nav>

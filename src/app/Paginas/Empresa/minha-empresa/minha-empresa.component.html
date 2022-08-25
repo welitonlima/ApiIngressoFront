@@ -1,0 +1,62 @@
+<app-emp-navbar></app-emp-navbar>
+<div class="container">
+  <div class="col-md-12">
+    <br>
+    <h3>Minha empresa ({{minhaEmpresa.Nome}})</h3>
+    <hr>
+    <div class="space-between">
+      <h4>Funcionários</h4>
+      <a class="btn btn-primary mb-5" [routerLink]="['/empresa/funcionario/cadastro']">Novo usuário</a>
+    </div>
+    
+  </div>
+  <div class="col-md-12">
+    <nav aria-label="paginação">
+      <ul class="pagination">
+          <li class="page-item" >
+          <a *ngIf="pg_preview" class="page-link" (click)="Paginacao_Preview()" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+          </a>
+          <span class="page-link disabled" *ngIf="!pg_preview">&laquo;</span>
+          </li>
+          <li [class]="Paginacao_ClassLinkPagination(p)" *ngFor="let p of pg_paginacao" >
+              <span class="page-link" *ngIf="p == pg_pagina">{{p}}</span>
+              <a *ngIf="p != pg_pagina" class="page-link" (click)="Paginacao_Click(p)">{{p}}</a>
+          </li>
+          <li class="page-item" >
+          <a *ngIf="pg_next" class="page-link" (click)="Paginacao_Next()" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+          </a>
+          <span class="page-link disabled" *ngIf="!pg_next">&raquo;</span>
+          </li>
+      </ul>
+    </nav>
+  </div>
+  <div class="col-md-12">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Cargo</th>
+          <th>Salário</th>
+          <th width="230px"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let f of funcionarios">
+          <td>{{f.Nome}}</td>
+          <td>{{f.Cargo}}</td>
+          <td>{{f.Salario}}</td>
+          <td>
+            <a class="btn" [routerLink]="['/empresa/funcionario/cadastro']" [queryParams]="{idFuncionario: f.IdFuncionario}">Editar/visualizar</a>
+            <button class="btn btn-danger" (click)="OpenModalExcluirFuncionario(f)">
+              excluir
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<app-modal-confirmacao msg="Deseja realmente excluir?" name="modalExcluirFuncionarioConfirme" (sendResultado)="RespostaModalExcluirFuncionario($event)"></app-modal-confirmacao>

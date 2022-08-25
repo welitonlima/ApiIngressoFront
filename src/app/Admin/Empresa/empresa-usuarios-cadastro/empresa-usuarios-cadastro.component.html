@@ -1,0 +1,26 @@
+<app-adm-navbar></app-adm-navbar>
+<div class="container">
+  <br>
+  <h3>Usuário - Cadastro</h3>
+  <div class="col-md-12">
+    <label for="">Nome do usuário</label>
+    <input type="text" class="form-control" [(ngModel)]="usuario.Nome">
+    <br>
+    <label for="">Login</label>
+    <input type="text" class="form-control" [(ngModel)]="usuario.Login" [disabled]="!novoUsuario">
+
+    <div *ngIf="novoUsuario">
+      <br>
+      <label for="">Senha</label>
+      <input type="password" class="form-control" [(ngModel)]="usuario.Senha">
+    </div>    
+    
+    <br>
+    <button class="btn btn-success" (click)="Salvar()">
+      Salvar
+    </button>
+    <a class="btn btn-default" [routerLink]="['/admin/empresa/usuarios']" [queryParams]="{idEmpresa: IdEmpresa}">Voltar</a>
+    <br>
+  </div>
+</div>
+

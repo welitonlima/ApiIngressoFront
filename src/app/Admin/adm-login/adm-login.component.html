@@ -1,0 +1,42 @@
+<div class="login-page">
+  <div class="login-box">
+      <!-- /.login-logo -->
+      <div class="card card-outline card-primary">
+        <div class="card-header text-center">
+          <a routerLink="/" class="login-title">
+            <b>A</b>dmin
+          </a>
+        </div>
+        <div class="card-body">
+          <p class="login-box-msg">Logar no sistema</p>
+    
+          <div (keydown.enter)="Logar()">
+            <div class="input-group mb-3">
+              <input [(ngModel)]="login" type="text" class="form-control" placeholder="Login">
+              <div class="input-group-append">
+                <div class="input-group-text">
+                  <span class="fas fa-user"></span>
+                </div>
+              </div>
+            </div>
+            <div class="input-group mb-3">
+              <input [(ngModel)]="senha" type="password" class="form-control" placeholder="Password">
+              <div class="input-group-append">
+                <div class="input-group-text">
+                  <span class="fas fa-lock"></span>
+                </div>
+              </div>
+            </div>
+            <div class="row">                
+              <div class="col-12">
+                <button type="submit" class="btn btn-primary form-control" (click)="Logar()">Logar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /.card-body -->
+      </div>
+      <!-- /.card -->
+    </div>
+  
+</div>

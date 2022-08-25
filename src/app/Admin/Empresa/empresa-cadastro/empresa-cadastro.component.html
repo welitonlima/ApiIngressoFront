@@ -1,0 +1,40 @@
+<app-adm-navbar></app-adm-navbar>
+<div class="container">
+  <br>
+  <h3>Empresa - Cadastro</h3>
+  <hr>
+  <div class="col-md-12">
+    <label for="">CEP</label>
+    <input type="text" class="form-control" [(ngModel)]="empresa.CEP" (keydown.enter)="BuscarCep()" (keyup)="ChangeCep()" mask="00.000-000">
+    <br>
+    <label for="">Nome da empresa</label>
+    <input type="text" class="form-control" [(ngModel)]="empresa.Nome">
+    <br>
+    <label for="">Cidade</label>
+    <input type="text" class="form-control" [(ngModel)]="empresa.Cidade">
+    <br>
+    <label for="">Logradouro</label>
+    <input type="text" class="form-control" [(ngModel)]="empresa.Logradouro">
+    <br>
+    <label for="">Número</label>
+    <input type="text" class="form-control" [(ngModel)]="empresa.Numero">
+    <br>
+    <label for="">Complemento</label>
+    <input type="text" class="form-control" [(ngModel)]="empresa.Complemento">
+    <br>
+    <label for="">Bairro</label>
+    <input type="text" class="form-control" [(ngModel)]="empresa.Bairro">
+    <br>
+    <label for="">UF</label>
+    <input type="text" class="form-control" [(ngModel)]="empresa.UF">
+    <br>
+    <label for="">Telefone</label>
+    <input type="text" class="form-control" [(ngModel)]="empresa.Telefone" mask="(00) 000000000">
+    <br>
+    <button class="btn btn-success" (click)="Salvar()">
+      Salvar
+    </button>
+    <a class="btn btn-default" [routerLink]="['/admin/painel']">Voltar</a>
+    <br>
+  </div>
+</div>

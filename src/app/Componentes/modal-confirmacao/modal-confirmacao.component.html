@@ -1,0 +1,20 @@
+<div class="modal fade" [id]="name" tabindex="-1" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Atenção</h5>
+      </div>
+      <div class="modal-body">
+          <div class="col-md-12">
+              <div class="row">
+                  <h6 [innerHTML]="msg"></h6>
+              </div>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="Confirmar(false)" data-bs-dismiss="modal">Não</button>
+        <button type="button" class="btn btn-primary" (click)="Confirmar(true)" data-bs-dismiss="modal">Sim</button>
+      </div>
+    </div>
+  </div>
+</div>

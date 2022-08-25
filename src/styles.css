@@ -1,0 +1,9 @@
+/* You can add global styles to this file, and also import other style files */
+.space-between{display: flex;flex-direction: row;justify-content: space-between;}
+.btn{margin-right: 1px;}
+.login-page .input-group-text{padding: .65rem .75rem; border-bottom-left-radius: 0; border-top-left-radius: 0;}
+.login-box{max-width: 400px;margin: 10% auto;}
+.table th{background-color: rgb(165, 165, 165);}
+.mb-5{margin-bottom: 5px !important;}
+.mt-5{margin-top: 5px !important;}
+.login-title{font-size: 22px;color: #333;text-decoration: none;}

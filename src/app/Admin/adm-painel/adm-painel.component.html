@@ -1,0 +1,67 @@
+<app-adm-navbar></app-adm-navbar>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <br>
+      <h3>Painel do administrador</h3>
+      <hr>
+    </div>
+    <div class="col-md-12">
+      <div class="space-between">
+        <h4>Empresas</h4>
+        <a class="btn btn-primary mb-5" [routerLink]="['/admin/empresa/cadastro']">Nova empresa</a>
+      </div>      
+    </div>
+    <div class="col-md-12">
+      <nav aria-label="paginação">
+        <ul class="pagination">
+            <li class="page-item" >
+            <a *ngIf="pg_preview" class="page-link" (click)="Paginacao_Preview()" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+            </a>
+            <span class="page-link disabled" *ngIf="!pg_preview">&laquo;</span>
+            </li>
+            <li [class]="Paginacao_ClassLinkPagination(p)" *ngFor="let p of pg_paginacao" >
+                <span class="page-link" *ngIf="p == pg_pagina">{{p}}</span>
+                <a *ngIf="p != pg_pagina" class="page-link" (click)="Paginacao_Click(p)">{{p}}</a>
+            </li>
+            <li class="page-item" >
+            <a *ngIf="pg_next" class="page-link" (click)="Paginacao_Next()" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+            </a>
+            <span class="page-link disabled" *ngIf="!pg_next">&raquo;</span>
+            </li>
+        </ul>
+    </nav>
+    </div>
+    <div class="col-md-12">
+      <table class="table">
+        <thead>
+          <th>Nome</th>
+          <th>Cidade</th>
+          <th>UF</th>
+          <th>CEP</th>
+          <th width="320px"></th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let e of empresas">
+            <td>{{e.Nome}}</td>
+            <td>{{e.Cidade}}</td>
+            <td>{{e.UF}}</td>
+            <td>{{e.CEP}}</td>
+            <td>
+              <a class="btn btn-warning" [routerLink]="['/admin/empresa/cadastro']" [queryParams]="{idEmpresa: e.IdEmpresa}">Editar/visualizar</a>
+              <a class="btn btn-warning" [routerLink]="['/admin/empresa/usuarios']" [queryParams]="{idEmpresa: e.IdEmpresa}">Usuários</a>
+              <button class="btn btn-danger" (click)="OpenModalExcluirEmpresa(e)">
+                excluir
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+</div>
+
+<app-modal-confirmacao msg="Deseja realmente excluir?" name="modalExcluirEmpresaConfirme" (sendResultado)="RespostaModalExcluirEmpresa($event)"></app-modal-confirmacao>

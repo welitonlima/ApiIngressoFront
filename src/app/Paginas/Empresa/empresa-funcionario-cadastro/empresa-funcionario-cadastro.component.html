@@ -1,0 +1,22 @@
+<app-emp-navbar></app-emp-navbar>
+<div class="container">
+  <br>
+  <h3>Funcionário - Cadastro</h3>
+  <hr>
+  <div class="col-md-12">
+    <label for="">Nome do funcionário</label>
+    <input type="text" class="form-control" [(ngModel)]="funcionario.Nome">
+    <br>
+    <label for="">Cargo</label>
+    <input type="text" class="form-control" [(ngModel)]="funcionario.Cargo">
+    <br>
+    <label for="">Salário</label>
+    <input type="text" class="form-control" [(ngModel)]="funcionario.Salario">
+    <br>
+    <button class="btn btn-success" (click)="Salvar()">
+      Salvar
+    </button>
+    <a class="btn btn-default" [routerLink]="['/empresa/minhaempresa']" [queryParams]="{idEmpresa: funcionario.IdEmpresa}">Voltar</a>
+    <br>
+  </div>
+</div>
